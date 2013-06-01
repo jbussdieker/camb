@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Camb::VERSION
   gem.authors       = ["Joshua Bussdieker"]
   gem.email         = ["jbussdieker@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Test runner}
+  gem.summary       = %q{Test runner}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)

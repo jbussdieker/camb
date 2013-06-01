@@ -14,8 +14,8 @@ module Camb
       start = Time.now
       response = client.response
       {
-        :total => Time.new - start,
-        :code => response.code
+        :timestamp => (start.to_f * 1000).to_i,
+        :total_time => Time.new - start
       }
     end
   end
