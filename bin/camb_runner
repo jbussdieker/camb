@@ -3,17 +3,29 @@ require 'camb'
 require 'optparse'
 require 'json'
 
-options = {}
+options = {
+  :probe => {},
+  :test  => {}
+}
 
 OptionParser.new do |o|
+  o.on("--probe_host HOST", String, "Hostname of probe") {|n|
+    options[:probe][:host] = n
+  }
+  o.on("--probe_user USER", String, "Username to connect to probe") {|n|
+    options[:probe][:user] = n
+  }
   o.on("--host HOST", String, "Hostname to test") {|n|
-    options[:host] = n
+    options[:test][:host] = n
   }
   o.on("--port PORT", Integer, "Port to test") {|n|
-    options[:port] = n
+    options[:test][:port] = n
+  }
+  o.on("--url URL", String, "URL to test") {|n|
+    options[:test][:url] = n
   }
   o.parse!
 end
 
 runner = Camb::Runner.new(options)
-puts runner.run.to_json
+puts runner.run

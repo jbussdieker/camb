@@ -19,4 +19,5 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'eventmachine'
   gem.add_dependency 'json'
+  gem.add_dependency 'net-ssh'
 end
