@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 require 'camb'
 require 'optparse'
+require 'json'
 
 options = {}
 
@@ -15,4 +16,4 @@ OptionParser.new do |o|
 end
 
 runner = Camb::Runner.new(options)
-puts runner.run
+puts runner.run.to_json
