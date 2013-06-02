@@ -9,14 +9,15 @@ module Camb
         @options = options[:test]
       end
 
+      def ssh
+        @ssh ||= Net::SSH.start(@host, @user)
+      end
+
       def run
         params = @options.collect {|k,v| "--#{k} #{v}"}.join(" ")
         results = ""
-        p params
-        Net::SSH.start(@host, @user) do |ssh|
-          ssh.exec!("camb_runner #{params}") do |channel, stream, data|
-            results << data
-          end
+        ssh.exec!("camb_runner #{params}") do |channel, stream, data|
+          results << data
         end
         results
       end
